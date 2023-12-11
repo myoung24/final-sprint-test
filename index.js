@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true })); // For gathering information fr
 
 // Get method for sample home page. In our app home page will be the welcome page, and ask users to either login or register.
 app.get("/", (req, res) => {
-  res.send("hello world");
+  res.render("index");
 });
 
 // Implementing the search routes
