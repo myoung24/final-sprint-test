@@ -1,0 +1,13 @@
+<html lang="en">
+  <body>
+    <div>
+      <h2>Procedure:</h2>
+      <% if (procedure && procedure.length > 0) { %> <% var currentProcedure =
+      procedure[0]; %>
+      <h3>
+        <%= currentProcedure.name %> <%= currentProcedure.billing_number %>
+      </h3>
+      <% } %>
+    </div>
+  </body>
+</html>

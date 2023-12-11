@@ -1,0 +1,15 @@
+<html lang="en">
+    <body>
+        <div>
+            <form action="/search" method="POST">
+                <b>Procedures: </b></br> 
+                <% if (allProcedures.length > 0) { %>
+                    <% allProcedures.forEach(procedure => { %>
+                        <b><%= procedure.name %> <%= procedure.billing_number %></b><br>
+                    <% }); %>
+                <% } %>
+                <button>POST</button>
+            </form>
+        </div>
+    </body>
+</html>

@@ -2,10 +2,25 @@ const express = require("express");
 const app = express();
 const PORT = 3000;
 
+global.DEBUG = true;
+app.set("view engine", "ejs");
+app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true })); // For gathering information from forms/text inputs
+
+// Get method for sample home page. In our app home page will be the welcome page, and ask users to either login or register.
 app.get("/", (req, res) => {
   res.send("hello world");
 });
 
+// Implementing the search routes
+const searchRoutes = require("./routes/search");
+app.use("/search", searchRoutes);
+
+// Implementing the search bar routes
+const searchBarRoutes = require("./routes/searchBar");
+app.use("/searchBar", searchBarRoutes);
+
+// Event listener for app to listen on port 3000.
 app.listen(PORT, () => {
-  console.log(`Example app listening at http://localhost:${PORT}`);
+  console.log(`Search app listening at http://localhost:${PORT}`);
 });
