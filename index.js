@@ -20,6 +20,10 @@ app.use("/search", searchRoutes);
 const searchBarRoutes = require("./routes/searchBar");
 app.use("/searchBar", searchBarRoutes);
 
+// Implementing the Mongo routes
+const mongoRoutes = require("./routes/mongo");
+app.use("/mongo", mongoRoutes);
+
 // Event listener for app to listen on port 3000.
 app.listen(PORT, () => {
   console.log(`Search app listening at http://localhost:${PORT}`);
