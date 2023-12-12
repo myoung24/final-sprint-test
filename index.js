@@ -12,6 +12,16 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+// Get method for login page
+app.get("/login", (req, res) => {
+  res.render("login");
+});
+
+// Get method for register page
+app.get("/register", (req, res) => {
+  res.render("register");
+});
+
 // Implementing the search routes
 const searchRoutes = require("./routes/search");
 app.use("/search", searchRoutes);
@@ -23,6 +33,15 @@ app.use("/searchBar", searchBarRoutes);
 // Implementing the Mongo routes
 const mongoRoutes = require("./routes/mongo");
 app.use("/mongo", mongoRoutes);
+
+// Implementing the auth routes
+const authRouter = require("./routes/auth");
+app.use("/auth", authRouter);
+
+// render 404 page for any other route
+app.use((req, res) => {
+  res.status(404).render("404");
+});
 
 // Event listener for app to listen on port 3000.
 app.listen(PORT, () => {
